@@ -23,8 +23,8 @@ jobs:
     environment: production
 
     env:
-      aws_access_key_id: ${{ secrets.ACCESS_ID }}
-      aws_secret_access_key: ${{ secrets.ACCESS_KEY }}
+      aws_access_key_id: ${{ secrets.TERRAFORM_ACCES_KEY_ID }}
+      aws_secret_access_key: ${{ secrets.TERRAFORM_ACCES_KEY }}
     
     steps:
     # Checkout the repository to the GitHub Actions runner
