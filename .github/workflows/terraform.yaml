@@ -58,5 +58,6 @@ jobs:
     - name: Terraform Destroy
       if: ${{ github.event.inputs.terraform_action == 'destroy' }}
       run: terraform apply -auto-approve 
-    - name: Show Input
-      run: echo "Action chosen: ${{ github.event.inputs.terraform_action }}"
+
+    - name: Display Selected Terraform Action
+      run: echo "Terraform action chosen by the user ${{ github.event.inputs.terraform_action }}"
