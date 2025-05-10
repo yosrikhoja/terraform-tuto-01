@@ -6,12 +6,12 @@ on:
     inputs:
       terraform_action:
         description: 'Terraform action to perform'
-        required: true
         default: 'production'
         type: choice
         options:
           - apply
           - destroy
+        required: true
   push:
     branches: [ "main" ]
  
