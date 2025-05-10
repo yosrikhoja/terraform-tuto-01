@@ -23,13 +23,16 @@ jobs:
     environment: production
 
     env:
-      aws_access_key_id: ${{ secrets.TERRAFORM_ACCES_KEY_ID }}
-      aws_secret_access_key: ${{ secrets.TERRAFORM_ACCES_KEY }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.TERRAFORM_ACCES_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.TERRAFORM_ACCES_KEY }}
     
     steps:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v4
+    # verify AWS credentials for the GitHub Actions runner
+    - name: Verify AWS Identity
+      run: aws sts get-caller-identity
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
